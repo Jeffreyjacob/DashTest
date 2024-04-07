@@ -150,7 +150,7 @@ function SearchPage({isDarkMode}) {
               {/**right Column*/}
               <div className='flex lg:w-[420px]  lg:px-3'>
                  {/**right Column for large screen*/}
-              <div className='max-lg:hidden flex flex-wrap justify-center'>
+              <div className='max-lg:hidden flex flex-wrap justify-center h-[400px]'>
               {
                 reviewImages.map((image,index)=>(
                   <img src={image.image} key={index}
