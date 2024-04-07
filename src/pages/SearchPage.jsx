@@ -50,7 +50,7 @@ function SearchPage({isDarkMode}) {
 
 
       <div className='flex flex-col justify-center items-center
-         text-[#1E1E1E] dark:text-[#FBFAFC] font-inter lg:px-16 py-5 max-lg:px-6'>
+         text-[#1E1E1E] dark:text-[#FBFAFC] font-inter lg:px-16 py-5  max-lg:px-6 '>
         {/**when there is no review */}
         {
           AllReview.length <= 0 && (
@@ -166,7 +166,7 @@ function SearchPage({isDarkMode}) {
                   {
                     reviewImages.map((image,index)=>(
                       <SwiperSlide style={{width:'fit-content'}}>
-                        <img src={image.image} key={index}/>
+                        <img src={image.image} key={index} className='px-2'/>
                       </SwiperSlide>
                     ))
                   }

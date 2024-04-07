@@ -38,6 +38,7 @@ function Navbar({Searchbar, SearchInfo, reviewnumber,setOpenReview}) {
     }, [auth])
     const logOutFunc = () => {
         auth.signOut()
+        navigate('/')
     }
     const searchHandle = (event) => {
         setSearch(event.target.value);

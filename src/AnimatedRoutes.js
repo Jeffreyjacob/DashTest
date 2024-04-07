@@ -24,7 +24,7 @@ function AnimatedRoutes({ isDarkmode }) {
           setUser(true);
           navigate('/searchpage')
         } else {
-           navigate('/homepage')
+          setUser(false); 
         }
       })
     }
@@ -36,7 +36,7 @@ function AnimatedRoutes({ isDarkmode }) {
         {
           !User ? (
             <>
-              <Route path='/homepage' element={<HomePage isDarkMode={isDarkmode} />} />
+              <Route path='/' element={<HomePage isDarkMode={isDarkmode} />} />
               <Route path='/login' element={<LoginPage />} />
               <Route path='/signup' element={<SignupPage />} />
             </>

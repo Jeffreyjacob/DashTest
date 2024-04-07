@@ -56,7 +56,7 @@ function LoginPage() {
         </div>
 
       {/**Login card */}
-      <div className='flex justify-center items-center py-12 max-sm:mt-5 '>
+      <div className='flex justify-center items-center py-12 max-sm:mt-7 '>
         <div className=' bg-[#FAFCFD] dark:bg-[#0D0D0D] text-[#1E1E1E] dark:text-[#FBFAFC] 
         font-inter rounded-[8px] w-[348px] py-5 px-[24px] lg:mt-16 shadow-md'>
           <h2 className='text-[15px] font-[500] text-center pb-5'>Login</h2>
