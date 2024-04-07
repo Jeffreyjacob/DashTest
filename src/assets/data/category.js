@@ -1,0 +1,15 @@
+export const categories = [
+    {name:'Schools'},
+    {name:'Hospitals'},
+    {name:'Resort Park'},
+    {name:'Shopping Malls'},
+    {name:'AirPorts'},
+    {name:'Train Stations'},
+    {name:'NightLife'},
+    {name:'Public Wifi'},
+    {name:'Parking Alot'},
+    {name:'Security'},
+    {name:'Public Transport'},
+    {name:'Bus Station'},
+    {name:'Quiet'},
+]
