@@ -34,11 +34,11 @@ function LoginPage() {
 
     if (data) {
       try {
-         auth.signInWithEmailAndPassword(data.email, data.password)
-        navigate('/searchpage')
+         await auth.signInWithEmailAndPassword(data.email, data.password);
       } catch (err) {
         setErrorMessage(err.message);
-        setShowErrorMessage(true)
+        console.log(err.message);
+        setShowErrorMessage(true);
       }
 
     }
@@ -103,7 +103,9 @@ function LoginPage() {
 
             <button type='submit' className='bg-[#3366FF] w-full uppercase leading-[18px] text-[14px]
            rounded-[6px] py-[11px] mt-5 text-white'>
-              Log in
+              {
+                isSubmitting ? '...Loading':'Login'
+              }
             </button>
 
           </form>
@@ -147,7 +149,7 @@ function LoginPage() {
         </div>
 
         {
-          showErrorMessage && <Error message={errorMessage} handleclose={() => setShowErrorMessage(false)} />
+          showErrorMessage && <Error open={showErrorMessage} message={errorMessage} handleclose={() => setShowErrorMessage(false)} />
         }
 
       </div>
