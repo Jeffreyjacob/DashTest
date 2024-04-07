@@ -88,11 +88,7 @@ function SearchPage({isDarkMode}) {
                   {
                     AllReview.map((review, index) => (
                       <SwiperSlide key={index} style={{ height: 'fit-content' }} className='py-5 px-3 pb-5'>
-                        <motion.div 
-                        initial={{ opacity: 0, x: -100 }}
-                        animate={{ opacity: 1, x: 0 }}
-                        transition={{ duration: 1, delay: 0.3 }}
-                        className='border-b-[1px] border-[#D9D9D9] pb-7'>
+                        <div className='border-b-[1px] border-[#D9D9D9] pb-7'>
                           <div className='flex justify-between items-center text-[14px] font-[400]'>
                             <div className='flex justify-between items-center gap-3'>
                               <Avatar src={userImage} width={20} height={20} circle style={{ objectFit: "contain" }} />
@@ -142,7 +138,7 @@ function SearchPage({isDarkMode}) {
 
                           </div>
 
-                        </motion.div>
+                        </div>
                       </SwiperSlide>
 
                     ))

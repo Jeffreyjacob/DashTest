@@ -76,7 +76,7 @@ function SignupPage() {
                 <h2 className='text-[15px] font-[500] text-center pb-5'>Sign Up</h2>
 
                 <form onSubmit={handleSubmit(onsubmit)}>
-                    <div className='w-[300px] flex gap-4'>
+                    <div className='w-[305px] flex gap-4'>
                         {/**first Name */}
                         <div className='w-1/2'>
                             <input type='text' className='bg-[#F3F7FE] dark:bg-[#232327] border-[#3366FF80] 

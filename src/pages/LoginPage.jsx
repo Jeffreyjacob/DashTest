@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { EyeIcon } from '@heroicons/react/16/solid';
+import { EyeIcon,EyeSlashIcon } from '@heroicons/react/16/solid';
 import { socialLogin } from '../assets/data/socialdetails';
 import { Link } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -17,6 +17,7 @@ function LoginPage() {
   const navigate = useNavigate()
   const [showErrorMessage, setShowErrorMessage] = useState(false);
   const [errorMessage, setErrorMessage] = useState();
+  const [passwordVisiblity, setpasswordVisiblity] = useState(false)
   const schema = z.object({
     email: z.string().min(1, { message: 'Email is required' }).email({
       message: 'Must be a valid email'
@@ -33,7 +34,7 @@ function LoginPage() {
 
     if (data) {
       try {
-        auth.signInWithEmailAndPassword(data.email, data.password)
+         auth.signInWithEmailAndPassword(data.email, data.password)
         navigate('/searchpage')
       } catch (err) {
         setErrorMessage(err.message);
@@ -55,7 +56,7 @@ function LoginPage() {
         </div>
 
       {/**Login card */}
-      <div className='flex justify-center items-center py-12'>
+      <div className='flex justify-center items-center py-12 max-sm:mt-5 '>
         <div className=' bg-[#FAFCFD] dark:bg-[#0D0D0D] text-[#1E1E1E] dark:text-[#FBFAFC] 
         font-inter rounded-[8px] w-[348px] py-5 px-[24px] lg:mt-16 shadow-md'>
           <h2 className='text-[15px] font-[500] text-center pb-5'>Login</h2>
@@ -76,9 +77,19 @@ function LoginPage() {
             {/**password */}
             <div className='bg-[#F3F7FE] dark:bg-[#232327] mt-5 border-[#3366FF80] 
             border-[0.5px] rounded-[4px] h-[40px] w-[300px] p-2 flex justify-between items-center'>
-              <input type='password' className='bg-[#F3F7FE] dark:bg-[#232327]  focus:border-none
+              <input type={passwordVisiblity ? 'text' : 'password'} className='bg-[#F3F7FE] dark:bg-[#232327]  focus:border-none
              outline-none' placeholder='Password' name='password' {...register("password")} />
-              <EyeIcon className='text-[#FBFAFC] h-[16px] w-[16px]' />
+              {
+                passwordVisiblity ? (
+                  <EyeSlashIcon className='dark:text-[#FBFAFC] text-[#8F95B2] h-[16px] w-[16px]'
+                  onClick={() => setpasswordVisiblity(false)}/>
+                ):( 
+                  <EyeIcon className='dark:text-[#FBFAFC] text-[#8F95B2] h-[16px] w-[16px]' 
+                  onClick={() => setpasswordVisiblity(true)}/>
+                )
+              }
+                
+              
             </div>
             {/**password error message */}
             {errors.password && (

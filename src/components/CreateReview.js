@@ -17,7 +17,7 @@ function CreateReview({ open, handleclose, isDarkmode }) {
   
   const [rating, setRating] = useState('');
   const [showAmenties, setShowAmenties] = useState(false);
-  const [amenties,setAmenties] = useState();
+  const [amenties,setAmenties] = useState([]);
   const amentiesHandle = ()=>{
     setShowAmenties(!showAmenties);
   }
@@ -43,6 +43,16 @@ function CreateReview({ open, handleclose, isDarkmode }) {
     handleclose();
 
   }
+
+const selectAmentiesHandle = (selectedAmenties)=>{
+  if(!amenties.some((item)=> item.name === selectedAmenties)){
+      setAmenties([...amenties,selectedAmenties])
+  }
+  if(amenties.some((item)=> item.name === selectedAmenties)){
+    const updatedAmenties = amenties.filter((item)=>item.name !== selectedAmenties)
+    setAmenties(updatedAmenties);
+  }
+}
 
   return (
     <Modal keyboard={false} open={open} onClose={handleclose} color='#171717'
@@ -73,7 +83,7 @@ function CreateReview({ open, handleclose, isDarkmode }) {
                     <div className='flex flex-wrap'>
                      {
                       categories.map((amenties,index)=>(
-                        <Checkbox key={index} onChange={()=>setAmenties(amenties.name)}>
+                        <Checkbox key={index} onChange={()=>selectAmentiesHandle(amenties.name)}>
                           {amenties.name}
                         </Checkbox>
                       ))
@@ -84,7 +94,7 @@ function CreateReview({ open, handleclose, isDarkmode }) {
             }
 
           </div>
-
+           {amenties}
           {/**Star rating */}
           <div className='mt-5'>
             <p className='text-[14px] font-[500] leading-[16.94px]'>Rate Location</p>
